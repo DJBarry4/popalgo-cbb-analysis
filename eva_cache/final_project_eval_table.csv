@@ -1,0 +1,4 @@
+Source,N Games,Total MAE,Total MSE,Total Bias,Spread MAE,Spread MSE
+model,3274,13.23,288.47,0.83,9.85,155.42
+book_open,3087,12.76,269.6,1.17,8.78,123.29
+,3086,12.74,268.24,1.19,8.73,122.16

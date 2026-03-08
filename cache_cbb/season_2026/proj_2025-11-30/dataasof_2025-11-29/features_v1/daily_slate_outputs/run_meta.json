@@ -1,0 +1,13 @@
+{
+  "slate_date": "2025-11-30",
+  "as_of_date": "2025-11-29",
+  "season_year": 2026,
+  "feature_version": "v1",
+  "lookback_days": 200,
+  "min_games": 3,
+  "master_start_date": "2025-11-01",
+  "n_slate_teams_scoreboard": 66,
+  "n_slate_team_rows_history": 450,
+  "n_snapshots_built": 61,
+  "n_teams_dropped_no_snapshot": 1
+}
