@@ -127,12 +127,12 @@ Key responsibilities include:
 - loading environment variables including the **Odds API key**
 - defining global parameters such as:
   - season year
-  - lookback window
   - backtest start and end dates
 - enforcing strict backtesting rules to prevent future data leakage
 - defining API endpoints for:
   - ESPN game data
   - Odds API betting markets
+  - API Key Referencing
 - creating project directories and cache folders
 - implementing helper utilities including:
   - date formatting
@@ -168,16 +168,6 @@ Tasks include:
 - calculating possessions from box score statistics
 - applying proxy pace estimates when data is missing
 - enforcing realistic pace bounds
-- tagging each row with a **possession source classification**
-
-Possible sources include:
-
-- **given**
-- **boxscore**
-- **proxy**
-- **unknown**
-
-Audit summaries are generated to verify possession reliability.
 
 ---
 
@@ -276,7 +266,7 @@ It calculates:
 - pace matchup groups
 - conference tier groups
 
-The dataset is exported as a CSV for visualization and analysis.
+The dataset is exported as a CSV, and that is referenced for the Results Analysis
 
 ---
 
@@ -321,12 +311,12 @@ Metrics used:
 
 ### Market Comparison
 
-For each game, the **model edge** is calculated:
+For each game, the model edge is calculated and referenced as **confidence score**
 
 - model projected total vs sportsbook total
 - model projected spread vs sportsbook spread
 
-Large edges represent strong disagreement between the model and the market.
+Large edges represent strong disagreement between the model and the market thus higher confidence
 
 ---
 
