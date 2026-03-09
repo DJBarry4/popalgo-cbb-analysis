@@ -96,6 +96,16 @@ Model performance is evaluated using:
 
 ---
 
+
+# System Architecture
+
+The Popalgo framework follows a structured pipeline that integrates game data, pace estimation, team performance snapshots, sportsbook odds, and model projections before producing final backtesting results and visualizations.
+
+The diagram below illustrates how data flows through the system from raw data sources to final evaluation metrics.
+
+![Popalgo System Architecture](visuals/Pipeline_Diagram.png)
+
+
 # Data Pipeline
 
 This project uses a structured **seven-stage data pipeline** to collect, clean, transform, and combine game data with sportsbook odds before analysis.
@@ -517,28 +527,47 @@ While spreads appear to be a more efficient market overall, the upward trend sug
 ---
 
 
-### Interpretation
+---
 
-The final stage evaluates whether the model captures real patterns in the betting market.
+# Next Steps
 
-Key questions include:
+While the current analysis focuses on Division I college basketball totals and spreads, the broader framework is designed to be flexible and extensible.
 
-- does the model outperform sportsbook predictions?
-- do larger edges correspond to better accuracy?
-- are inefficiencies concentrated in certain game environments?
-- does the market tend to move toward the model's projections?
+Future development of the Popalgo framework will focus on the following areas:
+
+### Expand to Additional Sports and Markets
+
+The core pipeline and modeling structure can be adapted to other sports or betting markets where pace, efficiency, and scoring environments play a meaningful role.
+
+Potential applications include:
+
+- NBA
+- NHL
+- NFL totals
+- Other niche betting markets
 
 ---
 
-## Tools Used
+### Improve Model Inputs
 
-- Python  
-- Pandas  
-- NumPy  
-- Matplotlib  
-- Jupyter Notebook  
+The predictive model can be enhanced by continuing to incorporate additional variables and refinements, such as:
+
+- expanded team efficiency metrics
+- lineup or roster adjustments
+- situational variables
+- improved pace estimation techniques
+
+Continued tracking and evaluation of these variables will help refine model accuracy over time.
 
 ---
+
+### Use the Framework as a Template for Future Models
+
+Beyond sports betting, the Popalgo pipeline serves as a **general template for building predictive models**.
+
+The structured workflow — including data ingestion, feature construction, projection generation, market comparison, and backtesting — provides a reusable framework for developing predictive systems in other domains.
+
+This architecture can serve as a starting point for future modeling projects across a wide range of applications.
 
 ## Author
 
