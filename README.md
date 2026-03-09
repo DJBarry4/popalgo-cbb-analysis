@@ -285,6 +285,23 @@ This dataset is used to evaluate **betting performance and market inefficiencies
 
 ---
 
+## Cell 8 — Results Construction
+
+This step converts the final merged dataset into an analysis-ready results table.
+
+The process attaches actual game scores to the model projections and sportsbook lines, then calculates:
+
+- projected totals and spreads
+- model confidence scores
+- model betting direction
+- line movement between open and close
+- game results (win / loss)
+- pace matchup classifications
+- conference tier groupings
+
+The resulting dataset is exported as a CSV file that will be used for the visualization and market analysis sections of the project.
+
+---
 # Avoiding Data Leakage in Backtesting
 
 A critical aspect of predictive modeling is avoiding **data leakage**.
