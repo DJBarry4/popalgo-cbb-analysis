@@ -344,16 +344,178 @@ This helps determine whether inefficiencies are concentrated in specific environ
 
 ---
 
-### Visualization
+---
 
-Results are presented using visualizations including:
+# Key Visualizations and Findings
 
-- model edge vs win percentage
-- line movement relative to projections
-- performance by pace matchup
-- performance by conference group
+The following visualizations summarize the key findings from the analysis. These charts evaluate both **sportsbook prediction accuracy** and **model performance** across multiple dimensions including conference tiers, pace matchups, season timing, and model confidence thresholds.
 
 ---
+
+# Sportsbook Market Accuracy
+
+## Totals Prediction Error by Conference Matchup
+
+![Book Total MAE by Conf Group](visuals/Book_Total_ConfGrp_MAE.png)
+
+This chart examines the accuracy of sportsbook opening totals across different **conference-tier matchups** using Mean Absolute Error (MAE).
+
+MAE measures the average difference between the sportsbook’s projected total and the actual total scored in the game.
+
+Lower values indicate more accurate predictions.
+
+Over the past five seasons (2022–2026), a clear pattern emerges: sportsbooks tend to predict totals **more accurately in high-tier matchups** than in lower-tier games.
+
+For example:
+
+- **Bottom 2 vs Bottom 2 matchups** have an MAE of approximately **13.11 points** across more than **8,000 games**.
+- **Power Five vs Power Five matchups** have a lower MAE of roughly **12.75 points** across over **3,000 games**.
+
+This suggests that sportsbooks have **greater difficulty predicting scoring environments in lower-tier games**, possibly due to less statistical coverage, lower betting volume, and greater variability in pace and efficiency.
+
+These environments therefore represent potential areas where predictive models may be able to identify useful signals.
+
+---
+
+## Spread Prediction Error by Conference Matchup
+
+![Book Spread MAE by Conf Group](visuals/Book_Spread_ConfGrp_MAE.png)
+
+This chart evaluates sportsbook accuracy for **point spreads** across the same conference-tier matchups.
+
+In contrast to totals, spreads display a somewhat **opposite pattern**.
+
+Lower-tier matchups tend to produce **slightly lower prediction error**, while mismatched conference tiers often show higher error.
+
+For example:
+
+- **LM vs LM matchups** show the lowest MAE at approximately **8.50 points**.
+- **Top 2 vs Bottom 2 matchups** produce the highest MAE at roughly **9.04 points**.
+
+This difference may reflect the fact that spreads rely more heavily on **relative team strength**, which may be easier for sportsbooks to estimate even when overall scoring environments are uncertain.
+
+Totals, on the other hand, depend more heavily on **pace of play and scoring efficiency**, which can be more volatile across lower-tier teams.
+
+---
+
+## Spread Prediction Accuracy Over the Season
+
+![Book Spread MAE by Month](visuals/Book_Spread_Month_MAE.png)
+
+This chart examines how sportsbook spread accuracy changes throughout the season.
+
+Across the five-year sample, spreads become **more accurate as the season progresses**.
+
+For example:
+
+- **December** spreads have an MAE of approximately **8.88 points**.
+- **January** improves to roughly **8.62 points**.
+- **February** sits between the two at around **8.69 points**.
+
+This trend is consistent with the idea that sportsbooks improve their estimates as **more information becomes available throughout the season**, including team performance data, roster stability, and updated power ratings.
+
+Early-season games therefore tend to have **greater uncertainty**, while later-season lines benefit from a larger sample of team data.
+
+---
+
+## Totals Prediction Error by Pace Matchup
+
+![Book Total MAE Pace Matchups](visuals/Book_Total_Pace_MAE.png)
+
+Because pace of play strongly influences scoring outcomes in basketball, totals were also evaluated across **pace matchup combinations**.
+
+Games involving **similar pace teams** tend to be more predictable, while mismatched pace styles can produce greater uncertainty in final scoring outcomes.
+
+This supports the underlying premise of the Popalgo framework: that **pace estimation is a critical component of predicting scoring environments in college basketball**.
+
+---
+
+# Model Validation
+
+Identifying sportsbook prediction errors alone does not necessarily imply a profitable opportunity.
+
+A key question is whether a predictive model can **systematically identify and exploit those inefficiencies**.
+
+To evaluate this, the Popalgo model assigns a **confidence score** based on the difference between the model’s projected line and the sportsbook opening line.
+
+Higher confidence thresholds represent **larger discrepancies between the model and the market**.
+
+Two validation tests are used:
+
+1. **Line movement toward the model**
+2. **Historical backtested win percentage**
+
+If the model is identifying useful information, both metrics should improve as confidence increases.
+
+---
+
+# Totals Model Results
+
+## Line Movement Toward Model (Totals)
+
+![Totals Line Movement Toward Model](visuals/Model_LineMovtPct_ConfLevel_TOTAL.png)
+
+This chart measures the percentage of sportsbook line movement that occurs **in the same direction as the model’s projection**.
+
+If the model is identifying meaningful signals, the market should tend to move toward the model after the opening line is posted.
+
+Across the five-year sample, line movement becomes increasingly positive as the model's confidence threshold rises.
+
+This suggests that the model is often identifying information that the betting market incorporates later.
+
+---
+
+## Backtested Winning Percentage (Totals)
+
+![Totals Win Percentage](visuals/Model_WinPct_Conf_TOTAL.png)
+
+This chart shows the historical win percentage of the model when backtested under strict **data leakage prevention** rules.
+
+The dashed line represents the **sportsbook break-even threshold** of approximately **52.4%**, accounting for typical betting market vig.
+
+At lower confidence thresholds, results are close to random.
+
+However, as confidence increases:
+
+- Win percentage improves
+- Net units improve
+- Sample size decreases (as expected for stronger signals)
+
+At the **highest confidence level**, the model achieves a win rate of approximately **55.5%**, indicating that stronger model signals correspond to improved performance.
+
+---
+
+# Spreads Model Results
+
+## Line Movement Toward Model (Spreads)
+
+![Spread Line Movement Toward Model](visuals/Model_LineMovtPct_ConfLevel_SPREAD.png)
+
+The same validation test can be applied to point spreads.
+
+As the model’s confidence increases, sportsbook lines also tend to move more frequently **toward the model’s projected spread**.
+
+Although the effect is smaller than for totals, the positive relationship between confidence and line movement suggests that the model is identifying useful information in spread pricing as well.
+
+---
+
+## Backtested Winning Percentage (Spreads)
+
+![Spread Win Percentage](visuals/Model_WinPct_Conf_SPREAD.png)
+
+Finally, the historical win percentage of the model for spreads is evaluated across confidence thresholds.
+
+As with totals, higher confidence thresholds produce improved performance.
+
+At the highest threshold:
+
+- Win percentage rises to approximately **53.2%**
+- Across more than **2,300 games**
+
+While spreads appear to be a more efficient market overall, the upward trend suggests that the model’s confidence score is still able to identify **higher-quality signals within the dataset**.
+
+---
+
 
 ### Interpretation
 
