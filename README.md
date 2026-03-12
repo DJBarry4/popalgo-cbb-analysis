@@ -30,14 +30,6 @@ This project investigates the following questions:
 
 The analysis includes **regular season games from the 2022 through 2026 seasons**, focusing primarily on the months **December through February**.
 
-Games outside this window introduce structural differences such as:
-
-- neutral-court environments
-- unusual matchup distributions
-- higher betting volume and improved market efficiency during postseason play
-
-For these reasons, the analysis focuses on **regular season games between December and February**.
-
 ---
 
 ## Data Sources
