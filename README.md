@@ -507,7 +507,11 @@ At the highest threshold:
 While spreads appear to be a more efficient market overall, the upward trend suggests that the model’s confidence score is still able to identify **higher-quality signals within the dataset**.
 
 ---
+## Project Walkthrough Video
 
+Watch the full explanation of the project here:
+
+https://www.youtube.com/watch?v=0MtiMwDRvPY
 
 ---
 
